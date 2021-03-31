@@ -10,13 +10,14 @@ if [ -z "${mysql_host}"  ]; then
     mysql_host=127.0.0.1
 fi
 if [ -z "${mysql_port}"  ]; then
-    mysql_host=3306
+    mysql_port=3306
 fi
 
 mysql -u "${mysql_user}" -p"${mysql_password}" -h "${mysql_host}" -P "${mysql_port}" \
-  -e "use '${mysql_db}'" \
+  -e "use ${mysql_db};" \
   -e "UPDATE core_config_data SET value = '${domain_switch}' WHERE path = 'web/secure/base_url';" \
   -e "UPDATE core_config_data SET value = '${domain_switch}' WHERE path = 'web/unsecure/base_url';" \
   -e "UPDATE core_config_data SET value = '0' WHERE path = 'admin/url/use_custom';" \
   -e "UPDATE core_config_data SET value = '0' WHERE path = 'web/secure/use_in_frontend';" \
-  -e "UPDATE core_config_data SET value = '0' WHERE path = 'web/secure/use_in_adminhtml';"
+  -e "UPDATE core_config_data SET value = '0' WHERE path = 'web/secure/use_in_adminhtml';" 
+  exit
