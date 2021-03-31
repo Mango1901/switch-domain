@@ -18,5 +18,5 @@ mysql -u "${mysql_user}" -p"${mysql_password}" -h "${mysql_host}" -P "${mysql_po
   -e "UPDATE core_config_data SET value = '${domain_switch}' WHERE path = 'web/secure/base_url';" \
   -e "UPDATE core_config_data SET value = '${domain_switch}' WHERE path = 'web/unsecure/base_url';" \
   -e "UPDATE core_config_data SET value = '0' WHERE path = 'admin/url/use_custom';" \
-  -e "UPDATE core_config_data SET value = '0' WHERE path = 'eb/secure/use_in_frontend';" \
+  -e "UPDATE core_config_data SET value = '0' WHERE path = 'web/secure/use_in_frontend';" \
   -e "UPDATE core_config_data SET value = '0' WHERE path = 'web/secure/use_in_adminhtml';"
